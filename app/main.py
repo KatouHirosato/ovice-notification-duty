@@ -11,7 +11,7 @@ def main():
         selectduty.normalize_per_people()
     weight = selectduty.todays_weights(day)
     persons = selectduty.select(weight)
-    message = f"おはようございます。今日のシャッフルトークは\n{persons[0]}さん {persons[1]}さん {persons[2]}sさん\nです。良い一日を！"
+    message = f"おはようございます。今日のシャッフルトークは<br />{persons[0]}さん {persons[1]}さん {persons[2]}sさん<br />です。良い一日を！"
     client_id = sys.argv[1]
     client_secret = sys.argv[2]
     notification.send_notification(client_id, client_secret, message)
