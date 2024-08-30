@@ -8,7 +8,7 @@ def main():
     day = datetime.datetime.now().weekday()
     if day == 0:
         selectduty.reset()
-        selectduty.normalize_per_people()
+        selectduty.normalize_per_person()
     weight = selectduty.todays_weights(day)
     persons = selectduty.select(weight)
     message = f"おはようございます。今日のシャッフルトークは<br />{persons[0]}さん {persons[1]}さん {persons[2]}さん<br />です。良い一日を！"
