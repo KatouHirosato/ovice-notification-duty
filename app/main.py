@@ -10,7 +10,7 @@ CSVFILE = 'schedule.csv'
 
 def main():
     day = datetime.datetime.now().weekday()
-    if day == 0:
+    if day == 0 or not os.path.exists(CSVFILE):
         download.download_sheet_as_csv(CSVFILE)
         selectduty.normalize_per_person(CSVFILE)
     persons = selectduty.select(day, CSVFILE)
