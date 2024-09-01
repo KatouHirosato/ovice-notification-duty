@@ -7,7 +7,6 @@ def download_sheet_as_csv(output_file):
     url = f'https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export'
     params = {
         'format': 'csv',
-        'id': spreadsheet_id,
         'gid': sheet_id
     }
     
