@@ -1,5 +1,8 @@
 import os
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def download_sheet_as_csv(output_file):
     spreadsheet_id = os.getenv('SPREADSHEET_ID')
