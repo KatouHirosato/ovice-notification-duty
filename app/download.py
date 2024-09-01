@@ -4,6 +4,7 @@ import requests
 def download_sheet_as_csv(output_file):
     spreadsheet_id = os.getenv('SPREADSHEET_ID')
     sheet_id = os.getenv('SHEET_ID')
+    print(f'Downloading sheet {sheet_id} from {spreadsheet_id} to {output_file}')
     url = f'https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export'
     params = {
         'format': 'csv',
