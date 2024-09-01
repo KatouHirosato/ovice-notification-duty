@@ -28,4 +28,4 @@ jobs:
         OPENAI_API: ${{ secrets.OPENAI_API }}
       run: |
         source .env
-        python -m app "$CLIENT_ID" "$CLIENT_SECRET"
+        python -m app "$CLIENT_ID" "$CLIENT_SECRET" "$OPENAI_API"
