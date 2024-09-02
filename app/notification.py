@@ -20,8 +20,8 @@ def send_notification(client_id, client_secret, message):
     url = 'https://api.ovice.io/api/public/v1/organizations/notification'
     headers = {
         'accept': '*/*',
-        'client_id': client_id,
-        'client_secret': client_secret,
+        'client_id': sys.argv[1],
+        'client_secret': sys.argv[2],
         'Content-Type': 'application/json',
     }
     data = {
