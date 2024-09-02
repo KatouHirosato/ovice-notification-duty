@@ -3,17 +3,24 @@ import requests
 import json
 import openai
 openai.api_key = sys.argv[3]
+import numpy.random.choice
 
 def add_greeting_to_message(input_message):
-    response = openai.chat.completions.create(
-        model="gpt-3.5-turbo",  # または "gpt-4"
-        messages=[
-            {"role": "system", "content": "短い挨拶を追加してください。"},
-            {"role": "user", "content": input_message}
-        ]
-    )
-    output_message = response['choices'][0]['message']['content'].strip()
-    return output_message
+    # response = openai.chat.completions.create(
+    #     model="gpt-3.5-turbo",  # または "gpt-4"
+    #     messages=[
+    #         {"role": "system", "content": "短い挨拶を追加してください。"},
+    #         {"role": "user", "content": input_message}
+    #     ]
+    # )
+    # output_message = response['choices'][0]['message']['content'].strip()
+    # return output_message
+    greetings = [
+        "よろしくお願いします。",
+        "良い朝を！",
+        "今日も頑張りましょう！",
+    ]
+    return input_message+numpy.random.choice(greetings)
 
 def send_notification(client_id, client_secret, message):
     url = 'https://api.ovice.io/api/public/v1/organizations/notification'
