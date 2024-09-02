@@ -31,5 +31,6 @@ def send_notification(*persons):
         'service_name': 'シャッフルチャット',
         'service_logo_url': 'https://twinengine.jp/wp-content/themes/twin_engine/assets/images/common/bnr/peakys.jpg'
     }
+    print(data)
     # response = requests.post(url, headers=headers, data=json.dumps(data))
     print(response.json())
