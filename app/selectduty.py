@@ -12,9 +12,9 @@ def normalize_per_person(csvfile):
 
 def select(day,csvfile):
     df = pandas.read_csv(csvfile)
-    distribution = df.set_index('person').iloc[:, day + 1].to_dict()
-    total_weight = sum(distribution.values())
-    weights = [value / total_weight for value in weights.values()]
-    person = list(distribution.keys())
-    persons = numpy.random.choice(person, size=3, replace=False, p=weights)
+    weights = df.set_index('person').iloc[:, day + 1].to_dict()
+    total_weight = sum(weights.values())
+    weights_standard = [value / total_weight for value in weights.values()]
+    person = list(weights.keys())
+    persons = numpy.random.choice(person, size=3, replace=False, p=weights_standard)
     return persons
