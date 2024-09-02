@@ -25,7 +25,7 @@ def send_notification(*persons):
         'Content-Type': 'application/json',
     }
     
-    message = f"おはようございます。今日のシャッフルチャットは<br />{person + "さん " for person in persons}<br />です。"
+    message = f"おはようございます。今日のシャッフルチャットは<br />{' '.join([person + 'さん' for person in persons])}<br />です。"
     data = {
         'message': add_greeting_to_message(message),
         'service_name': 'シャッフルチャット',
