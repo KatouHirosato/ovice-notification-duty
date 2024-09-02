@@ -5,7 +5,7 @@ import openai
 openai.api_key = sys.argv[3]
 
 def add_greeting_to_message(input_message):
-    response = openai.ChatCompletion.create(
+    response = openai.chat_completion.create(
         model="gpt-3.5-turbo",  # または "gpt-4"
         messages=[
             {"role": "system", "content": "短い挨拶を追加してください。"},
