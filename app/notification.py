@@ -3,7 +3,7 @@ import requests
 import json
 import openai
 openai.api_key = sys.argv[3]
-from numpy.random import numpy.random.choice 
+from numpy.random import choice
 
 def add_greeting_to_message(input_message):
     # response = openai.chat.completions.create(
