@@ -16,7 +16,7 @@ def add_greeting_to_message(input_message):
     # return output_message
     return input_message+"よろしくお願いします。"
 
-def send_notification(client_id, client_secret, message):
+def send_notification(*persons):
     url = 'https://api.ovice.io/api/public/v1/organizations/notification'
     headers = {
         'accept': '*/*',
@@ -24,10 +24,12 @@ def send_notification(client_id, client_secret, message):
         'client_secret': sys.argv[2],
         'Content-Type': 'application/json',
     }
+    
+    message = f"おはようございます。今日のシャッフルチャットは<br />{person + "さん " for person in persons}<br />です。"
     data = {
         'message': add_greeting_to_message(message),
         'service_name': 'シャッフルチャット',
         'service_logo_url': 'https://twinengine.jp/wp-content/themes/twin_engine/assets/images/common/bnr/peakys.jpg'
     }
-    response = requests.post(url, headers=headers, data=json.dumps(data))
+    # response = requests.post(url, headers=headers, data=json.dumps(data))
     print(response.json())
