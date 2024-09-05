@@ -34,7 +34,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        git config --global user.name "GitHub Actions"
+        git config user.name "update-schedule"
         git status
         git add schedule.csv
         git commit -m "Update schedule.csv"
