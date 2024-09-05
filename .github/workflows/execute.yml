@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: '0 3 * * 1-5'
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,8 +37,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |  
+        echo $GITHUB_TOKEN
         git add schedule.csv
         git status
-        git config user.name kh
+        git config user.name "KatouHirosato"
+        git config user.email "hirosato654@gmail.com"
         git commit -m "Update schedule.csv"
         git push
