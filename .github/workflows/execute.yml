@@ -36,5 +36,8 @@ jobs:
       run: |
         git status
         git add schedule.csv
+        git status
+        git config --global user.email "hirosato654@gmail.com"
+        git config --global user.name "KatouHirosato"
         git commit -m "Update schedule.csv"
         git push
