@@ -34,10 +34,10 @@ jobs:
         python -m app "$CLIENT_ID" "$CLIENT_SECRET" "$OPENAI_API"
 
     - name: Commit changes
+      if: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 3 * * 1' }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |  
-        echo $GITHUB_TOKEN
         git add schedule.csv
         git status
         git config user.name "KatouHirosato"
