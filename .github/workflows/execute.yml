@@ -30,13 +30,13 @@ jobs:
         source .env
         python -m app "$CLIENT_ID" "$CLIENT_SECRET" "$OPENAI_API"
 
-      - name: Commit changes
-        if: ${{ contains(github.event.schedule.cron, 'THU') }}
-        emv:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add schedule.csv
-          git commit -m "Update schedule.csv"
-          git push
+    - name: Commit changes
+      if: ${{ contains(github.event.schedule.cron, 'THU') }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add schedule.csv
+        git commit -m "Update schedule.csv"
+        git push
