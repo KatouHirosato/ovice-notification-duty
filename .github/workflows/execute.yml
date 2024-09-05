@@ -31,7 +31,7 @@ jobs:
         python -m app "$CLIENT_ID" "$CLIENT_SECRET" "$OPENAI_API"
 
     - name: Commit changes
-      if: ${{ contains(github.event.schedule.cron, 'THU') }}
+      if: ${{ (github.event_name == 'schedule' && startsWith(github.event.schedule.cron, '0 3 * * 4')) }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
