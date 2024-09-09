@@ -1,8 +1,6 @@
 import sys
 import requests
 import json
-import openai
-openai.api_key = sys.argv[3]
 
 def write_message(*persons):
     """
