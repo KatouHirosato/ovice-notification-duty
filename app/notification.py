@@ -24,4 +24,4 @@ def send_notification(*persons):
     }
     print(persons)
     # response = requests.post(url, headers=headers, data=json.dumps(data))
-    print(response.json())
+    # print(response.json())
