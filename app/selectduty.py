@@ -1,6 +1,5 @@
 import pandas
 import numpy
-import shutil
 
 def normalize_per_person(csvfile):
     df = pandas.read_csv(csvfile)
@@ -17,4 +16,5 @@ def select(day,csvfile):
     weights_standard = [value / total_weight for value in weights.values()]
     person = list(weights.keys())
     persons = numpy.random.choice(person, size=3, replace=False, p=weights_standard)
+    persons = persons.tolist()
     return persons

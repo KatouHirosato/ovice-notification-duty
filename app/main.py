@@ -18,6 +18,5 @@ def main():
     persons = selectduty.select(day, CSVFILE)
     notification.send_notification(*persons)
 
-
 if __name__ == '__main__':
     main()
